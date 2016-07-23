@@ -1,0 +1,42 @@
+1. Logarea : de salvat sesiunea
+2. Logout
+3. Pagina de campanie
+4. HOME : Top campanii de care as putea fi interesat 
+5. HOME: Utilizatori cu preferinte similare (utilizatorii cu pref similare vor fi ordonati desc dupa numarul de potriviri(like/dislike la acelasi ingredient)
+6. Scan : tratat cazul cand nu se gaseste produsul -> oferit posibilitatea sa introduca el produsul.
+	Va exista un sistem bazat pe "reputatie" . Pentru fiecare produs acceptat si introdus in baza noastra de date
+	userul va capata reputatie. De aceasta reputatie se va tine cont cand se introduce un produs. Exemplu:
+	Setam un prag minim de 500 reputatie pentru a putea introduce un produs.
+	Caz 1 : Daca un user cu reputatie minim 500 incearca sa introduca un produs nou , acesta va fi introdus instant.
+	Caz 2: Daca niciun user nu are reputatie de minim 500 atunci cand se incearca introducerea unui produs nou dar
+		exista doi utilizatori care au dat submit pentru acelasi produs (Acelasi nume pt acelasi cod de bare)
+		unul cu 300 reputatie si unul cu 200 reputatie (300+200>=500) atunci pragul de 500 a fost atins 
+		si se va introduce in BD produsul cu campurile(ingrediente) completate de cel cu reputatia mai mare(300).
+	In urma introducerii unui produs toti cei care au completat formularul vor castiga reputatie.
+7. Cautarea : de afisat mai intai dupa nume si apoi dupa continut (vezi siteul carrefourului)
+8. Procesare Ingrediente
+	Raman cele 2 butoane de like si dislike dar cand se va da click pe unul din ele va aparea un dialog
+	in care se va alege gradul de satifiabilitate/nesatisfiabilitate si motivul(text completat de user) pentru care a dat asta.
+	Optional : drag and drop
+9. Afisarea ingredientelor in functie de preferintele(aici trebuie algoritmul implementat) utilizatorului (Ingrediente preferate, Ingrediente nedorite, Ingrediente neutre)
+10. Reviewuri
+11. Produse care nu sunt alimentare
+	1. De luat detaliile supliemntare(specificatii tehnice si altele , in functie de categorie) de pe carrefour
+	2. De afisat pagina de produs diferit (de ex adaugat butoane noi , pt spec tehnice, pt audio, pt display etc)
+12. Produse similare: afisare + algoritm de recomandare
+13. Pagina de profil : afisare detaliile de la inregistare, reputatia, ingredientele preferate/nepreferate 
+	Eventual : modificat ingrediente, vazut utilizatorii cu preferinte similare (eventual te duci pe pagina lui de profil)
+
+
+-----------------------------------------
+---Bug-uri:
+-nu merge sa glisez pe pagina de profil din pagina Campanii 
+
+
+-Ciprian: - top 10 produse, top 10 sclifositi , inserare produs 
+-
+
+
+--De modificat:
+	-lasam iconul si numele si prenumele userului pe pagina de home daca e logat?
+	-!!!! butonul de la campanie se vede ca naiba

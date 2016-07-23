@@ -1,0 +1,40 @@
+<button id="buton_pareri" onclick = "$('.parere').fadeToggle();">Opinii utilizatori</button>
+<br>
+<div class="parere" ng-controller="ProductCtrl">
+	<textarea id="textareaReview" rows="1" col="50" placeholder="Titlu" ng-model="titlu"></textarea>
+	<textarea id="textareaReview"  rows="4" col="50" placeholder="Comentariu" ng-model="iol"></textarea>
+	<div class="acidjs-rating-stars">
+		  <form id="my_form">
+			   <input type="radio" name="comm" id="group-3-0" value="5" /><label  ng-click="setRating(5)"></label>
+			   <input type="radio" name="comm" id="group-3-1" value="4" /><label  ng-click="setRating(4)"></label>
+			   <input type="radio" name="comm" id="group-3-2" value="3" ><label  ng-click="setRating(3)"></label>
+			   <input type="radio" name="comm" id="group-3-3" value="2" /><label ng-click="setRating(2)"></label>
+			   <input type="radio" name="comm" id="group-3-4" value="1" /><label  ng-click="setRating(1)"></label>
+		   </form>
+   </div>
+	<button id="post_comment" ng-click="postareComentariu()"> Posteaza </button>
+	<div id="comentariuNou"> </div>
+	<div class="opinie_utilizator" ng-repeat="comentariu in comentarii">
+		<hr>
+
+		<h5>
+			#{{comentariu.titlu}}
+		</h5>
+		<article>
+			{{comentariu.content}}
+		</article>
+		<br>
+		<p class="typo name-date"><span>{{comentariu.data}}</span>|<span>{{comentariu.prenume}} {{comentariu.nume}}</span></p>
+		<div class="acidjs-rating-stars acidjs-rating-disabled">
+			<form>
+				<input disabled="disabled" ng-checked="{{comentariu.valoare5}}" type="radio" name="group-3" id="group-3-00" value="5"/><label for="group-3-00"></label>
+				<input disabled="disabled" ng-checked="{{comentariu.valoare4}}"  type="radio" name="group-3" id="group-3-01" value="4"/><label for="group-3-01"></label>
+				<input disabled="disabled" ng-checked="{{comentariu.valoare3}}"  type="radio" name="group-3" id="group-3-02" value="3"/><label for="group-3-02"></label>
+				<input disabled="disabled" ng-checked="{{comentariu.valoare2}}"  type="radio" name="group-3" id="group-3-03" value="2"/><label for="group-3-03"></label>
+				<input disabled="disabled" ng-checked="{{comentariu.valoare1}}"   type="radio" name="group-3" id="group-3-04" value="1"/><label for="group-3-04"></label>
+			</form>
+		</div>
+
+		<hr>
+	</div>
+</div>

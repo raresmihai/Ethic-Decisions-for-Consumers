@@ -1,0 +1,47 @@
+<div ng-controller="HomeTabCtrl" ng-init="initializeaza()" class="carddemoInCardActions">
+
+	<div class="list card" ng-show="logat">
+	 	<div class="item item-avatar">
+	 	    <img src="img/human.jpg" alt="Poza avatar">
+	 	    <h2>{{lastName}} {{firstName}}</h2>
+	 	    <p>{{email}}</p>
+	 	</div>
+	</div>
+
+	<div class="list card">
+		<div class="item item-body">
+	 		<article class="card__article">
+	 			<h2 style="float:left; display: block; font-size: 130% ;color:grey;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;">Activitati recente</h2> <button id="vezi_mai_mult_campanii_useri" ng-click="goToUsersActivities()"> Vezi mai mult </button>
+	 		</article>
+	 	</div>
+	 	<div class="item item-body" ng-repeat="userActiune in userActiuni">
+	 	    <p> Utilizatorul {{userActiune.lastname}} {{userActiune.firstName}} {{userActiune.actiune}} <a ng-click="clickOnActivitate(userActiune.cazActiune)"> {{produsSauCampanie}} </a> </p>
+	 	</div>
+
+	 	<div class="item item-body" ng-repeat="activitate in activitati | limitTo:3">
+            <p>
+                {{getFirstWord(activitate)}}
+                 <a ng-click="goToUserPage(activitate.email_address)">
+                     {{activitate.first_Name}} {{activitate.last_Name}}
+                 </a>
+                {{getMiddleSentence(activitate)}}
+                <a ng-click="goToPage(activitate)">
+                    {{activitate.link_name}}
+                </a>.
+             </p> 
+                
+        </div>
+
+ 	</div>
+     <div class="list card">
+     	<div class="item item-body">
+     	<article class="card__article">
+	 			<span style="float:left;" class="alignleft"> <h2 style="font-size: 130% ;color:grey;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;">Campanii recomandate</h2></span> <button id="vezi_mai_mult_campanii_useri" ng-click="goToCampaigns()"> Vezi mai mult </button>
+	 	</article>
+	    </div>
+	 	<br><br>
+     	<ion-scroll direction="x" class="wide-as-needed" >
+			<a class="buttonCampaign" ng-repeat="campanie in campanii | limitTo:10" ng-click="clickOnCampaign(campanie)"><img src={{campanie.poza}} id="campaignPhoto"></img><br><h3><span class="elementeProfil">{{campanie.nume}}</span></h3></a> 
+		</ion-scroll>
+        </div>
+</div>

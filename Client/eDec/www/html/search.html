@@ -1,0 +1,29 @@
+<div id="searchPage" ng-controller="searchProduct" ng-init="existaNext=false;">
+	<div class="bar bar-header item-input-inset" id='top-nav'>
+		<label class="item-input-wrapper">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="search" placeholder="Cautare produs" ng-model="searchedProduct">
+		</label>
+		<button class="button button-clear icon ion-arrow-right-c" ng-click="getNumberOfRecords()">
+		</button>
+	</div>
+		<ion-list>
+			<ion-item id="produs" ng-repeat="product in products" ng-click="clickOnProduct(product.barcode)">
+				<div id="produs">
+					<img src="{{product.image}}" alt="Image" id="searchPage">
+					<div id="informatiiProdus">
+					<p id="productName"> {{product.name}} </p>
+					<p id="productPrice"> {{product.price}}</p>
+					<div style="display: block" ng-show="displayPreferences">
+					<h2>Preferintele tale pentru acest produs:</h2>
+					<h2 class="icon ion-happy-outline" style="color:green"> {{product.likes}}</h2>
+                    <h2 class="icon ion-sad-outline" style="color:red"> {{product.dislikes}}</h2>
+                    <h2 class="icon ion-android-alert"> {{product.alerts}}</h2>
+					</div>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+	<ion-infinite-scroll immediate-check="false" on-infinite="search()" distance="5%" ng-if="existaNext">
+	</ion-infinite-scroll>
+</div>

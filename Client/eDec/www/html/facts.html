@@ -1,0 +1,22 @@
+<div id="loginPage" ng-controller="logIn">
+    <h1  id="titluRegister"> EDeC </h1>
+        <form  class="list ng-pristine ng-valid">
+            <div class="ion-list">
+              <label class="item item-input item-floating-label">
+                <i class="icon ion-ios-email placeholder-icon"></i>
+                <span class="input-label">E-mail</span>
+                <input type="email" placeholder="E-mail" autocorrect="off" autocapitalize="off" ng-model="email">
+              </label>
+              <label class="item item-input item-floating-label">
+                <i class="icon ion-locked placeholder-icon"></i>
+                <span class="input-label">Parola</span>
+                <input type="password" placeholder="Parola" ng-model="password">
+              </label>
+
+            </div>
+        </form>
+        <button class="button button-positive  button-block " style="border-radius:20px" id="loginButton" ng-click="login()">Log In</button>
+		<a class="button button-positive  button-block "  id="register" href="#/tab/register">Inregistrare</a>
+
+    </div>
+</div>

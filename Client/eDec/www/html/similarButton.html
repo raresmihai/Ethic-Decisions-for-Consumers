@@ -1,0 +1,15 @@
+<button id="button_produse_similare" onclick="$('.similar_products').fadeToggle();">Produse recomandate</button>
+<div class="similar_products" style="margin-top:3%" >
+    <ion-scroll direction="x" class="wide-as-needed" ng-show="similarProducts.length > 0">
+        <a class="buttonCampaign" ng-repeat="product in similarProducts" ng-click="clickOnSimilarProduct(product.barcode)" ng-show="noProducts==false">
+            <img id="campaignPhoto" src={{product.image}} /> <br />
+            <div ng-bind-html="displayProductName(product.name)"></div>
+            <h4 style="color:darkorange">{{product.commonIngr}} ingrediente comune</h4>
+            <h4 class="icon ion-happy-outline" style="color:lightgreen"> {{product.likes}} aprecieri</h4>
+        </a>
+    </ion-scroll>
+
+    <div class="info" ng-show="noProducts==true">
+        Din pacate nu exista produse similare ce sunt in conformitate cu preferintele dumneavoastra.
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div id="register_page" ng-controller="registerPerson">
+	<h1  id="titluRegister"> EDeC </h1>
+	<form class="list ng-pristine ng-valid" name="registration">
+            <div class="ion-list">
+             <label class="item item-input item-floating-label">
+                <i class="icon ion-ios-email placeholder-icon"></i>
+                <span class="input-label">E-mail</span>
+                <input type="email" placeholder="E-mail" autocorrect="off" autocapitalize="off" ng-model="email">
+              </label>
+              <label class="item item-input item-floating-label">
+                <i class="icon ion-android-person placeholder-icon"></i>
+                <span class="input-label">Prenume</span>
+                <input type="text" placeholder="Prenume" ng-model="firstName" >
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <i class="icon ion-android-person placeholder-icon"></i>
+                <span class="input-label">Nume</span>
+                <input type="text" placeholder="Nume" autocorrect="off" autocapitalize="off" ng-model="lastName">
+              </label>
+              <label class="item item-input item-floating-label">
+                <i class="icon ion-locked placeholder-icon"></i>
+                <span class="input-label">Parola</span>
+                <input type="password" placeholder="Parola" ng-model="password">
+              </label>
+            </div>
+
+
+           <button class="button button  button-positive button-block"  ng-click="register()">Inregistrare</button>
+
+        </form>
+
+</div>

@@ -1,0 +1,54 @@
+<div ng-controller="profile" ng-init="getMyPageInfo();">
+  <div id="divPoza" >
+    <img src="img/human.jpg " alt="Poza Profil" id="pozaProfil" />
+  </div>
+  <div id="informatiiUtilizator">
+    <h4 id="numeProfil"> {{firstName}}  {{lastName}}</h4>
+    <p>{{user}}</p>
+    <h6>Reputatie: {{reputation}}</h6>
+  </div>
+  <hr style="clear:both; margin-top:5px"/>
+  <div>
+	  <p>
+		Campaniile create de tine:
+	  </p>
+	  <h5 ng-show="!areCampanii">Nu aveti nici o campanie.</h5>
+
+	  <div class="wrapper" id="campaignList"  ng-repeat="campanie in campanii" >
+			<div class="card radius shadowDepth1"  ng-click="goToCampaign(campanie)" >
+				<div class="card__image border-tlr-radius">
+						<img src="{{campanie.poza}}" id="campanie.id" alt="image" class="border-tlr-radius pozeCampanie">
+				  </div>
+
+				<div class="card__content card__padding">
+					<div class="card__meta">
+						<span class="elementeProfil">Date:</span>
+						  <time style="color:black">{{campanie.data}}</time>
+					</div>
+
+					<article class="card__article">
+						<h2><span class="elementeProfil">{{campanie.nume}}</span></h2>
+
+						<p>{{campanie.descriere}}</p>
+					</article>
+				</div>
+			</div>
+	  </div>
+		<p>
+			Preferintele tale:
+		</p>
+		<h5 ng-show="!arePreferinte">Nu aveti momentan preferinte.</h5>
+		<p ng-show="arePreferinte==true" style="display: inline-block; clear:both; float:left">Like</p>
+		<div id="likePreferences" ng-repeat="likePref in preferinteLike" style="display: inline-block; clear:both; float:left">
+			<p  ng-click="modify(likePref.ingredient_name)"><i class="icon ion-happy-outline" style="color:green"></i> {{likePref.ingredient_name}} ({{likePref.motiv}})</p>
+		</div>
+		<p ng-show="arePreferinte" style="display: inline-block; clear:both; float:left">Dislike</p>
+		<div id="dislikePreferences" ng-repeat="dislikePref in preferinteDislike" style="display: inline-block; clear:both; float:left">
+			<p  ng-click="modify(dislikePref.ingredient_name)"><i class="icon ion-sad-outline" style="color:red"></i> {{dislikePref.ingredient_name}} ({{dislikePref.motiv}})</p>
+		</div>
+		<p ng-show="arePreferinte" style="display: inline-block; clear:both; float:left">Alert</p>
+		<div id="alertPreferences" ng-repeat="alertPref in preferinteAlert" style="display: inline-block; clear:both; float:left">
+			<p  ng-click="modify(alertPref.ingredient_name)"><i class="icon ion-android-alert" style="color:black"></i> {{alertPref.ingredient_name}} ({{alertPref.motiv}})</p>
+		</div>
+	</div>
+</div>

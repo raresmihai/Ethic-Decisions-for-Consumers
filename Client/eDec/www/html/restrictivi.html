@@ -1,0 +1,18 @@
+<div ng-controller="RestrictiviCtrl" ng-init="getMostRestrictiveUsers()">
+  <div ng-repeat="utilizator in topUseri" class="fisa">
+    <div class="w3-card-4" style="width:85%; margin:auto">
+      <header class="w3-container w3-light-grey">
+        <h3>{{utilizator.nume}} {{utilizator.prenume}} </h3>
+      </header>
+      <div class="w3-container">
+        <p class="numarRestrictii">{{utilizator.restrictii}} restrictii</p>
+        <hr />
+        <img src="img/human.jpg" alt="Poza avatar" class="w3-left w3-circle w3-margin-right" style="width:40px"/>
+        <p>{{utilizator.email}}</p><br>
+        <button class="w3-btn-block w3-dark-grey" ng-click="visitProfile(utilizator.email)">Viziteaza profil</button>
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</div>

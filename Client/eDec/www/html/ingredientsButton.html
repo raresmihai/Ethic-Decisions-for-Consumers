@@ -1,0 +1,50 @@
+<button id="buton_ingrediente" onclick = "$('.ingredient').fadeToggle();">Ingrediente</button>
+<br>
+<!--alerted ingredients container-->
+<div class="ingredient w3-card-4" style="width:98%;margin-top: 2%" id="div1" ng-show="alertedIngredients.length>0">
+	<header class="w3-container " style="height:8%; background-color:#FF6B6B;">
+		<h1 style="text-align:center; font-size:23px;vertical-align: middle; color: white;">
+			Pericol
+		</h1>
+	</header>
+	<div class="w3-container" id="div1" ng-repeat="ingredient in alertedIngredients">
+		<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'ingredient.name'}},{{'ingredient.option'}},{{'ingredient.reason'}})">{{ingredient.name}}</button>
+	</div>
+</div>
+
+<!--liked ingredients container-->
+<div class="ingredient w3-card-4" style="width:98%;margin-top: 2%" id="div1" ng-show="likedIngredients.length>0">
+	<header class="w3-container " style="height:8%;background-color:#4ECDC4;">
+		<h1 style="text-align:center; font-size:23px; vertical-align: middle; color: white;">
+			Ce iti place
+		</h1>
+	</header>
+	<div class="w3-container" id="div1" ng-repeat="ingredient in likedIngredients">
+		<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'ingredient.name'}},{{'ingredient.option'}},{{'ingredient.reason'}})">{{ingredient.name}}</button>
+	</div>
+</div>
+
+<!--disliked ingredients container-->
+<div class="ingredient w3-card-4" style="width:98%;margin-top: 2%" id="div1" ng-show="dislikedIngredients.length>0">
+	<header class="w3-container" style="height:8%; background-color:#C44D58;">
+		<h1 style="text-align:center; font-size:23px; vertical-align: middle; color: white;">
+			Ce nu iti place
+		</h1>
+	</header>
+	<div class="w3-container" id="div1" ng-repeat="ingredient in dislikedIngredients">
+		<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'ingredient.name'}},{{'ingredient.option'}},{{'ingredient.reason'}})">{{ingredient.name}}</button>
+	</div>
+</div>
+
+
+<!--neutral ingredients container-->
+<div class="ingredient w3-card-4" style="width:98%;margin-top: 2%" id="div1" ng-show="neutralIngredients.length>0">
+	<header class="w3-container" style="height:8%; background-color:#556270;">
+		<h1 style="text-align:center;font-size:23px;vertical-align: middle; color: white;">
+			{{neutralIngredientsDisplayMessage}}
+		</h1>
+	</header>
+	<div class="w3-container" id="div1" ng-repeat="ingredient in neutralIngredients">
+		<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'ingredient.name'}},{{'ingredient.option'}},{{'ingredient.reason'}})">{{ingredient.name}}</button>
+	</div>
+</div>

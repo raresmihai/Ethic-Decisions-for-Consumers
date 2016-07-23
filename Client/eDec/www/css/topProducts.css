@@ -1,0 +1,11 @@
+.pozaProdusTop{
+  clear: left;
+  float: left;
+  width: 7em;
+  height: 12em;
+  margin-right: 30px;
+}
+
+#informatiiProdusTop{
+  padding-top: 70px;
+}

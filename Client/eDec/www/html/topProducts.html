@@ -1,0 +1,14 @@
+<div ng-controller="TopProductCtrl" ng-init="getTopProducts()" >
+  <ion-list>
+    <ion-item id="produs" ng-repeat="produs in produse" ng-click="clickOnProduct(produs.barcode)">
+      <div id="produs">
+        <img src="{{produs.image}}" alt="Image" class="pozaProdusTop" >
+        <div id="informatiiProdusTop">
+          <p id="productName"> {{produs.name}} </p>
+        </div>
+      </div>
+    </ion-item>
+
+
+  </ion-list>
+</div>

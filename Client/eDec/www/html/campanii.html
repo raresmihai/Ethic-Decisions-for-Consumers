@@ -1,0 +1,21 @@
+<div ng-controller="CampaniiCtrl"  class="carddemoInCardActions" ng-repeat="campanie in campanii">
+			<div class="list card">
+        <div class="item item-body">
+  	    				<h1 style="font-size: 130% ;color:grey;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;"><span class="elementeProfil">{{campanie.nume}}</span></h1>
+      		<div class="card__meta">
+      					<span class="elementeProfil">Date:</span>
+                <time>{{campanie.data}}</time>
+      		</div>
+          <div class="card__meta">
+                <span class="elementeProfil">Numarul persoanelor care au aderat: {{campanie.nrUsers}}</span>
+                </time>
+              </div>
+
+          </div>
+
+     		<div class="card__image border-tlr-radius">
+                <a ng-click="clickOnCampaign(campanie)"><img src={{campanie.poza}} alt="image" class="border-tlr-radius pozeCampanie" ></img><br><h3><span class="elementeProfil"></span></h3></a>
+        </div>	
+        </div>
+        
+</div>

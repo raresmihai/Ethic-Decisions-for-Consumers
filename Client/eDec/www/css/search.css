@@ -1,0 +1,56 @@
+#searchPage  img {
+	clear:left;
+	float:left;
+	width:7em;
+	height:12em;
+	margin-right:30px;;
+}
+
+#productName , $productPage{
+	float: left;
+}
+
+#informatiiProdus{
+
+	padding-top: 30px;
+}
+
+
+#searchPage div.spacer{
+	height: 10px;
+	width: 100%;
+	clear:both;
+}
+
+
+ul#navigation
+{
+list-style-type: none;
+margin: 0;
+padding: .5em 0;
+border-top: 1px solid #666;
+}
+
+ul#navigation li button
+{
+display: block;
+width: 5em;
+color: #FFF;
+background-color: #036;
+padding: .2em 0;
+text-align: center;
+text-decoration: none;
+}
+
+ul#navigation li button:hover
+{
+color: #FFF;
+background-color: #69C;
+}
+
+ul#navigation .left { float: left; }
+ul#navigation .right { float: right; }
+
+#produs{
+	margin-top:14px;
+}

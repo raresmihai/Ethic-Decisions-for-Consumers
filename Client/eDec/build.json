@@ -1,0 +1,11 @@
+{
+     "android": {
+         "release": {
+             "keystore": "c:\\edec-key.keystore",
+             "storePassword": "iphardcodat",
+             "alias": "rares",
+             "password" : "iphardcodat",
+             "keystoreType": ""
+         }
+     }
+ }

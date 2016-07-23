@@ -1,0 +1,25 @@
+{
+  "name": "edec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodejs_get.js",
+  "dependencies": {
+    "body-parser": "^1.3.0",
+    "cors": "^2.7.1",
+    "express": "^4.4.4",
+    "string": "^3.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cypmaster14/serverNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cypmaster14/serverNode/issues"
+  },
+  "homepage": "https://github.com/cypmaster14/serverNode#readme"
+}

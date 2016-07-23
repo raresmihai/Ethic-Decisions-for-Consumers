@@ -1,0 +1,123 @@
+﻿#campaignPhoto
+{
+	height: 250px;
+    width: auto;
+    max-width: 350px;
+    max-height: 250px;
+}
+#post_commentCampaign {
+	background-color: rgba(34, 44, 230, 0.56);
+	-moz-border-radius: 28px;
+	-webkit-border-radius: 28px;
+	border-radius: 18px;
+	border: 1px solid #18ab29;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 100%;
+	padding: 10px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2f6627;
+	text-align: center;
+	width: unset;
+	margin-top: 0px;
+	margin-right: unset;
+	margin-left: 75%;
+	border-radius: 15px;
+}
+.buttonCampaign {
+  border-color: transparent;
+  background-color: transparent;
+  color: black;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 12px;
+  max-width: 600px;
+  max-height: 600px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  line-height: 42px;
+  cursor: pointer;
+ }
+
+
+.wide-as-needed {
+  overflow: scroll;
+  white-space: nowrap;
+  min-height: 300px;
+}
+.scroll {
+  min-width: 100%;
+}
+
+#scrollCampanii{
+  height: 0px;
+}
+
+.bar.bar-loading {
+  display: block;
+  height: 24px;
+
+  /* starts right below a normal header */
+  top: 44px;
+
+  /* make the text centered vertically and horizontally */
+  text-align: center;
+  padding: 0;
+  line-height: 24px;
+
+  /* transition 'sliding down' (check below)*/
+  -webkit-transition: 200ms all;
+}
+
+
+/*
+ * make the content's top changes animate.
+ * might not always look good, but looks
+ * good when our loader is added & removed
+ */
+
+
+/* make loading bar slide up/down */
+.bar-loading.ng-enter,
+.bar-loading.ng-leave.ng-leave-active {
+  height: 0;
+  border-width: 0px;
+}
+.bar-loading.ng-enter.ng-enter-active,
+.bar-loading.ng-leave {
+  height: 24px;
+  border-width: 1px;
+}
+
+
+@charset "UTF-8";/*!
+ * Copyright 2015 Drifty Co.
+ * http://drifty.com/
+ *
+ * Ionic, v1.3.1-nightly-3335
+ * A powerful HTML5 mobile app framework.
+ * http://ionicframework.com/
+ *
+ * By @maxlynch, @benjsperry, @adamdbradley <3
+ *
+ * Licensed under the MIT license. Please see LICENSE for more information.
+ *
+ *//*!
+  Ionicons, v2.0.1
+  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
+  https://twitter.com/benjsperry  https://twitter.com/ionicframework
+  MIT License: https://github.com/driftyco/ionicons
+
+  Android-style icons originally built by Google’s
+  Material Design Icons: https://github.com/google/material-design-icons
+  used under CC BY http://creativecommons.org/licenses/by/4.0/
+  Modified icons to fit ionicon’s grid from original.
+*/

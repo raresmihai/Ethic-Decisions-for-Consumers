@@ -1,0 +1,7 @@
+<button id="buton_campanie" onclick = "$('.campanie').fadeToggle();">Campanii Produs</button>
+<div class="campanie">
+	<a id="buton_vezi_mai_mult" ng-click="clickOnCreateCampaign(barcode)">Creare Campanie</a>
+	<ion-scroll direction="x" class="wide-as-needed"  ng-show="campanii.length > 0" style="margin-top: 2%">
+		<a class="buttonCampaign" ng-repeat="campanie in campanii"   ng-click="clickOnCampaign(campanie)"><img src={{campanie.imagine}} id="campaignPhoto"></img><br><h3><span class="elementeProfil">{{campanie.campaign_name}} </span></h3></a>
+	</ion-scroll>
+</div>

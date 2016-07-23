@@ -1,0 +1,66 @@
+Ce vrem sa faca(contina) proiectul nostru : 
+
+I) Scanare cod de bare
+1. Se cauta in BD produsul 
+2. Daca nu exista in BD -> il cautam pe eandata folosind API-ul rest.
+   Daca l-am gasit, ii afisam informatiile si il introducem in BD.
+3. Daca nu e nici pe eandata il rugam pe utilizator sa introduca el produsul oferindu-i. 
+
+
+II. Pagina de detail pentru produs
+1. Afisare poza + nume produs + pret(recomandat)
+2. Rating (in stelute) : media notelor
+3. Ingrediente : posibilitate de like si dislike (doar pt utilizatori) ce vor fi folosite pentru recomandari
+	Daca nu sunt logat : ma duce pe pagina de login sau ma atentioneaza ca trebuie sa ma loghez
+	
+	Momentan : se vor valida ingredientele pe baza listei de pe alegesanatos.ro/ingrediente
+	Algoritmul de like/dislike : Daca dau like la faina ----> imi va semnala tot ce contine |faina in keywords
+								 Daca dau like la faina de grau ----> imi va semnala tot ce contine "faina de grau" in keywords , nu si "faina" simplu
+								 
+								 
+								 
+	Tabela de Like/Dislike :    email   denumireIngredient    optiune
+								Primary key : (email,denumireIngredient)
+		
+		
+	Algoritmul  : 
+	1.ingrediente_returnate = map(nume_ingredient,marcaj) // cheia : numele ingredientului ce va fi marcat ; marcajul : rosu/verde sau vedem noi
+	2.Am scanat/dat click pe produs si trebuie afisata pagina de detail.
+	3.ingrediente_produs = SELECT ingredient FROM PRODCT_INGREDIENT where barcode = barcode_produs
+	  4. Pentru fiecare ingredient_produs din ingrediente_produs ma uit in tabela de Like/Dislike :
+		5. ingrediente_marcate = SELECT * FROM Like/Dislike WHERE email = emailul_utilizatorului
+		6. Pentru fiecare (ingredient_marcat,marcaj) din ingrediente_marcate
+			7. if (ingredient_produs == ingredient_marcat) //ne uitam prima data dupa egalitate exacta
+				8. ingrediente_returnate.insert (ingredient_produs,marcaj)
+		9. Pentru fiecare (ingredient_marcat,marcaj) din ingrediente_marcate
+			10. if(ingredient_produs LIKE '%ingredient_marcat%' AND ingrediente_returnate[ingredient_produs] == null)
+				11. ingrediente_returnate.insert (ingredient_produs,marcaj)
+	12. return ingrediente_returnate	
+	
+	3-11 : Se adauga mai intai ingredientele cu match exact in mapul returnat. 
+		   Abia dupa cele care doar contin un ingredient din tabela Like/Dislike
+		   
+	Exemplu:
+	Produsul contine : lapte degresat, lapte praf, alune , cacao
+	In tabela like/dislike pt user exista : (lapte,like) , (lapte degresat,dislike), (cacao macinata,dislike)
+	
+	Linia 7 identifica egalitate "lapte degresat" == "lapte degresat". Se adauga perechea ("lapte degresat",dislike) la map.
+	Linia 10 identifica "lapte praf" LIKE "%lapte%". Se adauga perechea ("lapte praf",like) la map.
+	-- "lapte degresat" nu va fi adaugat cu valoarea like(din cauza la "lapte degresat" like "%lapte%") 
+		deoarece "lapte degresat" a fost adaugat deja(conform ==)
+		
+
+	
+4.  Cautare
+	1. Cautare dupa un simplu 'camp'.
+	2. produse_ce_contin_in_nume_camp = SELECT * FROM PRODUCT WHERE nume LIKE 'camp%' order by rating desc
+	3. produse_ce_contin_in_ingrediente_camp = SELECT * FROM PRODUCT WHERE keywords LIKE '%camp%' order by rating desc
+	4. produse_returnate = set() // pentru a avea valori unice : linia 3 returneaza si produse de la linia 2
+	5. produse_returnate.add(produse_ce_contin_in_nume_camp);
+	6. produse_returnate.addInContinuare(produse_ce_contin_in_ingrediente_camp);
+	7. return produse_returnate;
+	
+	Exemplu:
+	Cautare "lapte".
+	Mi se afiseaza mai intai (primele rezultate) efectiv lapte(lapte zuzu, lapte oke,lapte dorna etc)
+	Dupa aceea mi se afiseaza produse ce contin lapte(Rom cu aroma de lapte, ciocolate milka, balsam de par etc)

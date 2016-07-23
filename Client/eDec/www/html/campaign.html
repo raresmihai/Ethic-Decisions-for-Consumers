@@ -1,0 +1,61 @@
+<div ng-controller="CampaignCtrl" class="wrapper" >
+
+<div class="list card">
+
+	
+
+	<div class="item item-body">
+		<h1 style="font-size: 130% ;color:grey;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;"><span class="elementeProfil">{{campaign_name}}</span></h1>
+		<p style="text-indent: 10px;">{{campaign_description}}</p>
+
+        <img style="height: auto; min-width: 100%; max-width: 100%; max-height: 400px;" src={{campaign_image}} alt="Poza Companie"></img>
+
+        <br /><br />
+
+		<div class="card__meta">
+				<span class="elementeProfil">Produsul campaniei: </span> <a style="color: #0A9DC7;" ng-click="goToPoductPage(product_barcode)">{{product_name}}</a>
+		</div>
+
+
+      	<div class="card__meta">
+				<span class="elementeProfil">Au aderat: </span>{{campaign_nrUsers}} membri
+  	    </div>
+
+  	    <div class="card__meta">
+      			<span class="elementeProfil">Data crearii:</span>
+                <time>{{creation_date}}</time>
+      	</div>
+      	<div class="card__meta">
+      			<span class="elementeProfil">Creata de:</span>
+                <time><a ng-click="goToUserPage(email_creator_campanie)"> {{last_name}} {{first_name}} </a></time>
+      	</div>
+
+      	<div class="item item-bodyCampagin">
+		        <button id="buton_vezi_mai_mult" ng-click="joinCampaign()" ng-show="isLogged" ng-disabled="aAderat==1">{{buttonText}}</button><br>
+				<textarea id="textareaReview" rows="1" col="50" placeholder="Titlu" ng-model="titlu"></textarea>
+	            <textarea id="textareaReview"  rows="4" col="50" placeholder="Comentariu" ng-model="iol"></textarea><br>
+	           <button id="post_commentCampaign" ng-click="postareComentariu()"> Post </button>
+	           <div id="comentariuNou"> </div>
+		</div>
+		 <div class="opinie_utilizator" ng-repeat="comentariu in comentarii">
+		<hr>
+		<h5>
+			#{{comentariu.titlu}}
+		</h5>
+		<article>
+			{{comentariu.content}}
+		</article>
+		<br>
+		<p class="typo name-date"><span>{{comentariu.data}}</span>|<span>{{comentariu.prenume}} {{comentariu.nume}}</span></p>
+		<hr>
+	    </div>
+
+	</div>
+
+</div>
+
+</div>
+
+
+
+

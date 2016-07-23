@@ -1,0 +1,58 @@
+-Back-ul ala trebuie neapărat rezolvat. Designul(nu f mult dar de fixat anumite detalii). Testat pt diferite scenarii sa nu cada serverul. Tratat situații ce pot genera excepții gen introduc un nume f lung la produs sau eu știu. Jucat cu aplicația: făcut conturi, campanii, completat frumos ca sa avem ce arata profului și de pus în demo. De făcut demo-ul, actualizat raportul. Eventual dacă mai este timp(puțin probabil) făcută faza cu compararea produselor ca se cere în enunț + ce o sa mai apara.  	
+
+caz general: Utilizatorul <a ng-click=""> {{userActiune.lastname}} {{userActiune.firstName}} <a/> {{userActiune.actiune}} <a ng-click="clickOnActivitate(userActiune.cazActiune)"> {{produsSauCampanie}} </a>
+
+$scope.userActiuni=data.userActiuni;
+
+
+obj.lastName;
+obj.firstName;
+obj.actiune;
+obj.cazActiune;
+obj.produsSauCampanie;
+
+cazActiune:1
+	$scope.actiune="a creat campania"
+cazActiune:2
+	$scope.ingredient=obj.ingredient;
+	$scope.actiune="a votat ingredientul "+$scope.ingredient pentru produsul ";
+cazActiune:3
+	$scope.actiune="a aderat la campania "
+
+
+
+
+USER ,ACTIUNE ,COD_ACTIUNE , NUME_LEGATURA(NUMELE PRODUSULUI SAU NUMELE CAMPANIEI) , ID_LEGATURA , TIMP
+
+caz aderare campanie:
+ACTIUNE =  "First_Name Last_Name a aderat la campania Nume_Campanie"
+COD_ACTIUNE = "aderare_campanie"
+NUME_LEGATURA = Nume_Campanie
+ID_LEGATURA = ID_CAMPANIE
+
+caz creare campanie:
+ACTIUNE = "First_Name Last_Name a initiat campania Nume_Campanie"
+COD_ACTIUNE = "creare_campanie"
+NUME_LEGATURA = Nume_Campanie
+ID_LEGATURA = ID_CAMPANIE
+
+caz votare ingredient:
+ACTIUNE = "First_Name Last_Name a votat ingredientul Nume_Ingredient pentru produsul "
+COD ACTIUNE = "votare_ingredient"
+NUME_LEGATURA = Nume_Produs
+ID_LEGATURA = BARCODE
+
+Primul pas: se stabilesc utilizatorii similari : similar_users = [(user,similaritate)]
+Useri similari:
+Se iau toti userii
+Top N(10?) utilizatori sortati dupa Grad_Similaritate //3 in vezi mai mult
+Grad_Similaritate = 50% * similaritate_campanii + 50% * similaritate_ingrediente
+similaritate_campanii = (nr_campanii_comune)/(nr_campanii_total) //la care am aderat
+similaritate_ingrediente = (nr_ingrediente_comune_cu_aceeasi_preferinta)/(nr_ingrediente_total_cu_preferinta)
+
+actiuni_user = [] //pt fiecare utilzator similar se obtin actiunile sale din tabela User_Actions
+For user in similar_users:
+  actiuni_user.push("SELECT * FROM User_Actions WHERE user = user")
+
+actiuni_user.sort(descrescator dupa timp) //vor fi afisate cele mai RECENTE actiuni
+

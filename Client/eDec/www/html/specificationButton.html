@@ -1,0 +1,106 @@
+<button id="buton_ingrediente" onclick = "$('.specification').fadeToggle();" >Specificatii tehnice</button>
+<br>
+<!--alerted specifications container-->
+<div class="specification w3-card-4" style="width:98%; margin-top:2%" ng-show="alertedSpecifications.length>0">
+	<header class="w3-container w3-yellow" style="height:10%">
+		<h1 style="text-align:center;">
+			Pericol
+		</h1>
+	</header>
+	<div class="w3-card-4" style="width:96%; margin-top: 2%; margin-left:2%" ng-repeat="spectypeobj in alertedSpecifications">
+		<header class="w3-container">
+			<h2 style="text-align:left;">
+				{{spectypeobj.spectype}}
+			</h2>
+		</header>
+		<div class="w3-card-4" style="width:96%; margin-left:2%" ng-repeat="subspectypeobj in spectypeobj.subspectypeobjs">
+			<header class="w3-container w3-light-yellow">
+				<h3 style="text-align:left">
+					{{subspectypeobj.subspectype}}
+				</h3>
+			</header>
+			<div class="w3-container" ng-repeat="specvalobj in subspectypeobj.specvalobjs">
+				<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'specvalobj.specification_id'}},{{'specvalobj.option'}},{{'specvalobj.reason'}})">{{specvalobj.specval}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--liked specifications container-->
+<div class="specification w3-card-4" style="width:98%; margin-top: 2%" ng-show="likedSpecifications.length>0">
+	<header class="w3-container w3-green" style="height:10%">
+		<h1 style="text-align:center;">
+			Ce iti place
+		</h1>
+	</header>
+	<div class="w3-card-4" style="width:96%; margin-top: 2%; margin-left:2%" ng-repeat="spectypeobj in likedSpecifications">
+		<header class="w3-container">
+			<h2 style="text-align:left;">
+				{{spectypeobj.spectype}}
+			</h2>
+		</header>
+		<div class="w3-card-4" style="width:96%; margin-left:2%" ng-repeat="subspectypeobj in spectypeobj.subspectypeobjs">
+			<header class="w3-container w3-light-green">
+				<h3 style="text-align:left;">
+					{{subspectypeobj.subspectype}}
+				</h3>
+			</header>
+			<div class="w3-container" ng-repeat="specvalobj in subspectypeobj.specvalobjs">
+				<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'specvalobj.specification_id'}},{{'specvalobj.option'}},{{'specvalobj.reason'}})">{{specvalobj.specval}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--disliked ingredients container-->
+<div class="specification w3-card-4" style="width:98%; margin-top:2%" ng-show="dislikedSpecifications.length>0">
+	<header class="w3-container w3-red" style="height:10%">
+		<h1 style="text-align:center;">
+			Ce nu iti place
+		</h1>
+	</header>
+	<div class="w3-card-4" style="width:96%; margin-top: 2%; margin-left:2%" ng-repeat="spectypeobj in dislikedSpecifications">
+		<header class="w3-container">
+			<h2 style="text-align:left;">
+				{{spectypeobj.spectype}}
+			</h2>
+		</header>
+		<div class="w3-card-4" style="width:96%; margin-left:2%" ng-repeat="subspectypeobj in spectypeobj.subspectypeobjs">
+			<header class="w3-container w3-light-red">
+				<h3 style="text-align:left;">
+					{{subspectypeobj.subspectype}}
+				</h3>
+			</header>
+			<div class="w3-container" ng-repeat="specvalobj in subspectypeobj.specvalobjs">
+				<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'specvalobj.specification_id'}},{{'specvalobj.option'}},{{'specvalobj.reason'}})">{{specvalobj.specval}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--neutral ingredients container-->
+<div class="specification w3-card-4" style="width:98%; margin-top: 2%;" ng-show="neutralSpecifications.length>0">
+	<header class="w3-container w3-grey" style="height:10%">
+		<h1 style="text-align:center;">
+			{{neutralSpecificationsDisplayMessage}}
+		</h1>
+	</header>
+	<div class="w3-card-4" style="width:96%; margin-top: 2%; margin-left: 2%;" ng-repeat="spectypeobj in neutralSpecifications">
+		<header class="w3-container">
+			<h2 style="text-align:left;">
+			{{spectypeobj.spectype}}
+			</h2>
+		</header>
+		<div class="w3-card-4" style="width:96%; margin-left: 2%;" ng-repeat="subspectypeobj in spectypeobj.subspectypeobjs">
+			<header class="w3-container w3-light-grey">
+				<h3 style="text-align:left;">
+					{{subspectypeobj.subspectype}}
+				</h3>
+			</header>
+			<div class="w3-container" ng-repeat="specvalobj in subspectypeobj.specvalobjs">
+				<button class="button button-clear button-dark" gesture-on-hold="showAditionalMenu({{'specvalobj.specification_id'}},{{'specvalobj.option'}},{{'specvalobj.reason'}})">{{specvalobj.specval}}</button>
+			</div>
+		</div>
+	</div>
+</div>

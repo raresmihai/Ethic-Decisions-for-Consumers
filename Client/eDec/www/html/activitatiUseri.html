@@ -1,0 +1,14 @@
+<div ng-controller="activitatiUseriCtrl">
+    <div class="item item-body" ng-repeat="activitate in activitati">
+        <p>
+            {{getFirstWord(activitate)}}
+            <a ng-click="goToUserPage(activitate.email_address)">
+                {{activitate.first_Name}} {{activitate.last_Name}}
+            </a>
+            {{getMiddleSentence(activitate)}}
+            <a ng-click="goToPage(activitate)">
+                {{activitate.link_name}}
+            </a>.
+        </p>
+    </div>
+</div>

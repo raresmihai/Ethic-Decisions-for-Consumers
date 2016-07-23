@@ -1,0 +1,51 @@
+
+  <div id="addProductForm" ng-controller="AddProductCtrl" class="list" ng-init="preiaBarcode()">
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Nume produs</span>
+      <input type="text" placeholder="Nume" autocorrect="off" autocapitalize="off" ng-model="numeProdus" value="" />
+    </label>
+
+
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Pret produs</span>
+      <input type="text" placeholder="Pret" autocorrect="off" autocapitalize="off" ng-model="pretProdus" value="" />
+    </label>
+
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Link spre poza</span>
+      <input type="text" placeholder="Link" autocorrect="off" autocapitalize="off" ng-model="linkPoza" value="" />
+    </label>
+
+
+    <div id="listaIngrediente">
+        <p>
+          <label class="item item-input item-stacked-label" for="ingredient">
+            <span class="input-label">Ingredient</span>
+            <input type="text" id="ingredient" size="30" value="" placeholder="Ingredient:"/>
+          </label>
+        </p>
+    </div>
+    <button ng-click="adaugaInputIngredient()" id="adaugInput"  class="button button-clear button-light">Adauga Ingredient</button>
+    <br />
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label">Categorie</span>
+        <select ng-model="categorieSelectata" ng-change="afiseazaCategorieSelectata(categorieSelectata)">
+         <option selected>Bacanie</option>
+         <option>Curatenie si intretinere</option>
+         <option>Univers bebe si jucarii</option>
+         <option>Bautura si tutun</option>
+         <option>IT, comunicatii si foto</option>
+         <option>Tv, electrocasnice si electronice</option>
+         <option>Legume si fructe</option>
+         <option>Brutarie</option>
+         <option>Carne, lactate si mezeluri</option>
+         <option>Casa, auto si hobby</option>
+         <option>Igiena si infrumusetare</option>
+      </select>
+    </label>
+    <br />
+    <br />
+    <button id="buton_ingrediente" ng-click="insereazaProdus()" >Adauga Produs</button>
+
+  </div>
